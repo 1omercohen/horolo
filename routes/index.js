@@ -1,50 +1,23 @@
 var express = require('express');
 var router = express.Router();
+var auth = require("../controllers/AuthController.js");
 
-var isAuthenticated = function (req, res, next) {
-	if (req.isAuthenticated())
-		return next();
-	// if the user is not authenticated then redirect him to the login page
-	res.redirect('/');
-}
+// restrict index for logged in user only
+router.get('/', auth.home);
 
-module.exports = function(passport){
+// route to register page
+router.get('/register', auth.register);
 
-	/* GET login page. */
-	router.get('/', function(req, res) {
-    	// Display the Login page with any flash message, if any
-		res.render('index', { message: req.flash('message') });
-	});
+// route for register action
+router.post('/register', auth.doRegister);
 
-	/* Handle Login POST */
-	router.post('/login', passport.authenticate('login', {
-		successRedirect: '/home',
-		failureRedirect: '/',
-		failureFlash : true  
-	}));
+// route to login page
+router.get('/login', auth.login);
 
-	/* GET Registration Page */
-	router.get('/signup', function(req, res){
-		res.render('register',{message: req.flash('message')});
-	});
+// route for login action
+router.post('/login', auth.doLogin);
 
-	/* Handle Registration POST */
-	router.post('/signup', passport.authenticate('signup', {
-		successRedirect: '/home',
-		failureRedirect: '/signup',
-		failureFlash : true  
-	}));
+// route for logout action
+router.get('/logout', auth.logout);
 
-	/* GET Home Page */
-	router.get('/home', isAuthenticated, function(req, res){
-		res.render('home', { user: req.user });
-	});
-
-	/* Handle Logout */
-	router.get('/signout', function(req, res) {
-		req.logout();
-		res.redirect('/');
-	});
-
-	return router;
-}
+module.exports = router;
