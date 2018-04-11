@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/1omercohen/horolo/issues"
   },
-  "homepage": "https://github.com/1omercohen/horolo#readme"
+  "homepage": "https://github.com/1omercohen/horolo#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.0.14"
+  }
 }
