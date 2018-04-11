@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1 Node.js, Express.js, Mongoose.js and Passport.js
-  p User Authentication Example
+if (!user)
+  h1 Messaging System
+  p The task is to write a simple rest API backend system that responsible of handling messages between users.
+  ul
+    li Node.js 
+    li Express.js
+    li Mongoose.js
+    li Passport.js
+if (user)
+  div(ng-controller="main")
+    a(href="/createMessage" type="button" class="btn btn-primary")
+      span(class="glyphicon glyphicon-plus")

@@ -16,7 +16,7 @@ userController.register = function(req, res) {
 
 // Post registration
 userController.doRegister = function(req, res) {
-  User.register(new User({ username : req.body.username, name: req.body.name }), req.body.password, function(err, user) {
+  User.register(new User({ username : req.body.username, email: req.body.email, firstName: req.body.firstName , lastName: req.body.lastName}), req.body.password, function(err, user) {
     if (err) {
       return res.render('register', { user : user });
     }
@@ -44,5 +44,12 @@ userController.logout = function(req, res) {
   req.logout();
   res.redirect('/');
 };
+
+userController.getUsers = function(req, res){
+  User.find({}).select('firstName lastName email')
+    .then(function(users){
+      res.status(200).json(users);
+    })  
+}
 
 module.exports = userController;

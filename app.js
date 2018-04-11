@@ -9,7 +9,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/node-auth')
+mongoose.connect('mongodb://localhost/horolo')
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 
@@ -22,14 +22,12 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('express-session')({
-    secret: 'keyboard cat',
+    secret: 'horolo',
     resave: false,
     saveUninitialized: false
 }));
@@ -64,4 +62,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+app.listen(3005, function(){
+  console.log('Server running on port 3005');
+});
