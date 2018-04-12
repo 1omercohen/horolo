@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var auth = require("../controllers/AuthController.js");
+var auth = require("../controllers/AuthController");
+var msg = require("../controllers/MessageController");
 
 // restrict index for logged in user only
 router.get('/', auth.home);
@@ -21,5 +22,15 @@ router.post('/login', auth.doLogin);
 router.get('/logout', auth.logout);
 
 router.get('/users', auth.getUsers);
+
+router.post('/messages/create', msg.create);
+
+router.get('/users/messages/:userId', msg.getAllMessagesUser);
+
+router.get('/users/messages/unreaded/:userId', msg.getUnreadMessagesUser);
+
+router.get('/messages/:messageId', msg.getMessage);
+
+router.post('/messages/:messageId', msg.delete);
 
 module.exports = router;

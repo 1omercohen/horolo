@@ -1,0 +1,46 @@
+<html ng-app="msgApp">
+    <head>
+        <title>Messages System</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+        <script src="./js/index.js"></script>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u'
+            crossorigin='anonymous'>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp'
+            crossorigin='anonymous'>
+        <link rel='stylesheet' href='./stylesheets/style.css'>
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle='collapse' data-target='#bs-example-navbar-collapse-1'
+                        aria-expanded='false'>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand"> Horolo Test</a>
+                    <div class="collapse navbar-collapse" id='bs-example-navbar-collapse-1'>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#!/login">Login</a>
+                            </li>
+                            <li>
+                                <a href="#!/register">Register</a>
+                            </li>
+                            <li>
+                                <a>Welcome</a>
+                            </li>
+                            <li>
+                                <a href="#!/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <ng-view></ng-view>
+    </body>
+</html>

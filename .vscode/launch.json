@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "C:\\Users\\Omer\\Desktop\\horolo\\app.js"
+            "program": "C:\\Users\\MT-FantasyAdvantage\\Desktop\\horolo\\app.js"
         }
     ]
 }

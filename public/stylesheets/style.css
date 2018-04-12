@@ -2,6 +2,10 @@ body {
   background-color: #eee;
 }
 
+.navbar-header{
+  float: none;
+}
+
 .form-signin {
   max-width: 330px;
   padding: 15px;

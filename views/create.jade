@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    if(user)
+        .container
+            form.form-signin(role='form', action="/createMessage",method="post", style='max-width: 300px;')
+            h2.form-signin-heading Create Message
+            input(type="text", name="sendto", placeholder="Send To")
+            input.form-control(type='text', name="subject", placeholder='Subject')
+            textarea.form-control(type='text', name="message", placeholder='Message')
+            input(type="text", name="owner", value="#{user.email}" disabled)
+            button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign Up

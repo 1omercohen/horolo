@@ -1,15 +1,14 @@
 extends layout
 
 block content
-if (!user)
-  h1 Messaging System
-  p The task is to write a simple rest API backend system that responsible of handling messages between users.
-  ul
-    li Node.js 
-    li Express.js
-    li Mongoose.js
-    li Passport.js
-if (user)
-  div(ng-controller="main")
+  if (!user)
+    h1 Messaging System
+    p The task is to write a simple rest API backend system that responsible of handling messages between users.
+    ul
+      li Node.js 
+      li Express.js
+      li Mongoose.js
+      li Passport.js
+  if (user)
     a(href="/createMessage" type="button" class="btn btn-primary")
       span(class="glyphicon glyphicon-plus")
